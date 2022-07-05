@@ -6,15 +6,15 @@ stages:
     cmd: python src/models/predict_model.py
     deps:
     - path: model.pkl
-      md5: 7a678168ecc3580a420d6eb2907c630c
-      size: 678
+      md5: 0108cd986cdcd6f859f0a53e7d9af428
+      size: 501
     - path: src/models/predict_model.py
       md5: 8fdbce982a21c2047f547bccffbe69ae
       size: 815
     - path: src/models/train_model.py
-      md5: fc0ed01f2a10e10ea02b19ac53cf8ba0
-      size: 1493
+      md5: 0b14bf8a18f89957a611fdfa5098e33c
+      size: 1502
     outs:
     - path: evaluation/test.json
-      md5: 2794d1e3e046283fa4a3c51baf09782e
+      md5: da58052994f39779338ed80664baac38
       size: 32
