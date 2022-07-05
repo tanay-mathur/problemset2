@@ -23,6 +23,6 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "## Metrics" >> report.md
-          dvc metrics diff master --show-md >> report.md
+          dvc metrics diff master --all --show-md >> report.md
 
           cml send-comment report.md
