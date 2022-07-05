@@ -4,12 +4,9 @@ from sklearn.linear_model import LinearRegression
 import pandas as pd
 import os
 from sklearn.metrics import mean_squared_error
-from data import make_dataset
 import numpy as np
 import pickle
 import sys
-
-# sys.path.append('../data')
 
 def main():
     make_dataset.processData()
@@ -31,4 +28,6 @@ def main():
 
 if __name__ == "__main__":
     project_dir = Path(__file__).resolve().parents[2]
+    sys.path.append('src')
+    from data import make_dataset
     main()
