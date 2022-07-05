@@ -1,4 +1,1 @@
-[core]
-    remote = storage
-['remote "storage"']
-    url = ../arn:aws:s3:::problemset2
+
