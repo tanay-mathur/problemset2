@@ -1,0 +1,10 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/models/train_model.py
+  predict:
+    cmd: python src/models/predict_model.py
+    deps:
+    - path: model.pkl
+      md5: 7a678168ecc3580a420d6eb2907c630c
+      size: 678
