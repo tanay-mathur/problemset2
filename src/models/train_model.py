@@ -9,7 +9,7 @@ import numpy as np
 import pickle
 import sys
 
-sys.path.append('../data')
+# sys.path.append('../data')
 
 def main():
     make_dataset.processData()
