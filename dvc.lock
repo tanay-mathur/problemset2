@@ -2,9 +2,16 @@ schema: '2.0'
 stages:
   train:
     cmd: python src/models/train_model.py
-  predict:
+  predict_model:
     cmd: python src/models/predict_model.py
     deps:
     - path: model.pkl
       md5: 7a678168ecc3580a420d6eb2907c630c
       size: 678
+    - path: src/models/predict_model.py
+      md5: 8fdbce982a21c2047f547bccffbe69ae
+      size: 815
+    outs:
+    - path: evaluation/test.json
+      md5: 2794d1e3e046283fa4a3c51baf09782e
+      size: 32

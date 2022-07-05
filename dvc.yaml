@@ -1,7 +1,11 @@
 stages:
   train:
     cmd: python src/models/train_model.py
-  predict:
+  predict_model:
     cmd: python src/models/predict_model.py
     deps:
     - model.pkl
+    - src/models/predict_model.py
+    metrics:
+    - evaluation/test.json:
+        cache: false
