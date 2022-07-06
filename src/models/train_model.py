@@ -1,4 +1,4 @@
-from copyreg import pickle
+import pickle
 from pathlib import Path
 from sklearn.linear_model import LinearRegression
 import pandas as pd
