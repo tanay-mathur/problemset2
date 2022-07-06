@@ -1,7 +1,7 @@
 ProblemSet2
 ==============================
 
-A short description of the project.
+Predict the median house price in a block (smallest census group in US) given other demographic and geographic information. 
 
 Project Organization
 ------------
@@ -51,7 +51,29 @@ Project Organization
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
+Tools used
+--------
+- Template from cookie cutter
+- DVC pipelines
+- CI pipelines from CML
+- This has been deployed to an AWS EC2 instance
+
+Details:
+--------
+- Cookie cutter
+    - Template used from https://drivendata.github.io/cookiecutter-data-science/
+- Data Version Control (DVC)
+    - The data is stored in an s3 bucket and linked to DVC. Thus, it doesn't need to be uploaded to GitHub for tracking and can be fetched using `dvc pull`
+    - Implemented a DVC pipeline to:
+        - Read the raw data from data/housing.csv, process it, split it into train and test and place the processed data in data/processed. This data is then read from data/processed and used to train a linear regression model. A pickled version of this model is saved
+        - Read the pickled model and test data, use it to make predictions and evaluate the mean squared error of the prediction on test data.
+        The results of this evaluation are saved in evaluation/test.json.
+- Continuous Machine Learning (CML) for DVC through GitHub actions
+    - Whenever a push is made to the repository, there is a GitHub action based on CML and DVC that is triggered. It runs on a custom CML docker container.
+    - At each push, the metrics (MSE) of the latest version are calculated. This is then compared with the previous version and the results of the comparison are sent by email once the action completes.
+    - When a new pull request is opened, the error metrics of the two branches are compared by the action. This comparison is automatically added as a comment to the pull request. Example: https://github.com/tanay-mathur/problemset2/pull/2
+- AWS EC2
+    - This model has been deployed to an EC2 instance
 
 --------
-
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
