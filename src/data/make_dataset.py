@@ -12,6 +12,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
+import pickle
 
 
 # @click.command()
@@ -51,6 +52,8 @@ def processData():
     hml_test = df_test.drop("median_house_value", axis=1) # drop labels for training set
     hml_test_labels = df_test["median_house_value"].copy() 
     X_test = full_pipeline.transform(hml_test)
+    with open('full_pipeline.pkl', "wb") as fd:
+        pickle.dump(full_pipeline, fd)
     # np.savetxt("foo.csv", a, delimiter=",")
     np.savetxt(os.path.join(project_dir, 'data', 'processed','X_train.csv'), hml_prepared, delimiter=",")
     # pd.DataFrame(hml_prepared).to_csv(os.path.join(project_dir, 'data', 'processed','X_train.csv'),header=None, index=None)

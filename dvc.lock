@@ -12,8 +12,8 @@ stages:
       md5: 8fdbce982a21c2047f547bccffbe69ae
       size: 815
     - path: src/models/train_model.py
-      md5: 2da3b5deb13d8466c957e067b37d756f
-      size: 1555
+      md5: 54ce378bf99bfced56acb6eed1cc999d
+      size: 1526
     outs:
     - path: evaluation/test.json
       md5: 2794d1e3e046283fa4a3c51baf09782e
