@@ -18,7 +18,7 @@ def main():
     # X_test = pd.read_csv(os.path.join(project_dir, 'data', 'processed','X_test.csv'))
     hml_test_labels = np.loadtxt(os.path.join(project_dir, 'data', 'processed','Y_test.csv'), delimiter=',')
     # hml_test_labels = pd.read_csv(os.path.join(project_dir, 'data', 'processed','Y_test.csv'))
-    lin_reg = LinearRegression()
+    lin_reg = LinearRegression(positive=True)
     lin_reg.fit(hml_prepared,hml_labels)
     with open('model.pkl', "wb") as fd:
         pickle.dump(lin_reg, fd)
